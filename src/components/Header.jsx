@@ -7,7 +7,6 @@ function Header() {
     {
       name: "Dashboard",
       slug: "/",
-      // this isActive depends on whether user is logged in or not. so basically it helps us in showing dynamic header. Currently, no authentication process we have so I am making everything true
       isActive: true,
     },
     {
@@ -18,9 +17,9 @@ function Header() {
   ];
 
   return (
-    <header className="bg-slate-900 py-4 flex justify-between items-center px-6">
+    <header className="bg-slate-900 py-4 px-6 flex flex-col sm:flex-row items-center justify-between">
       <Logo />
-      <div className="flex justify-center items-center gap-12">
+      <nav className="flex flex-col sm:flex-row gap-4 sm:gap-12 mt-4 sm:mt-0">
         {navItems?.map(
           (item, idx) =>
             item.isActive && (
@@ -28,14 +27,16 @@ function Header() {
                 to={item.slug}
                 key={idx}
                 className={({ isActive }) =>
-                  isActive ? "text-white" : "text-red-600"
+                  isActive
+                    ? "text-white font-semibold"
+                    : "text-red-600 hover:text-white transition-colors duration-200"
                 }
               >
                 {item.name}
               </NavLink>
             )
         )}
-      </div>
+      </nav>
     </header>
   );
 }

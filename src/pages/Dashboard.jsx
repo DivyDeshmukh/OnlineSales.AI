@@ -10,13 +10,12 @@ function Dashboard() {
   useEffect(() => {
     const formsData = localStorage.getItem("formsData");
     if (formsData) {
-      console.log("running");
       const parseFormsData = JSON.parse(formsData);
       dispatch(addForms(parseFormsData));
       const names = parseFormsData.map((form) => form.name);
       setFormsName(names);
     }
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="p-6 max-w-4xl mx-auto">
@@ -28,14 +27,14 @@ function Dashboard() {
           {formsName.map((name, idx) => (
             <li
               key={idx}
-              className="flex items-center justify-between p-4 bg-white rounded-lg shadow-md hover:bg-gray-100 transition-colors"
+              className="flex flex-col sm:flex-row items-center justify-between p-4 bg-white rounded-lg shadow-md hover:bg-gray-100 transition-colors"
             >
               <span className="text-lg font-semibold text-gray-700">
                 {name}
               </span>
               <Link
                 to={`/form/${name}`}
-                className="text-blue-500 hover:text-blue-600 transition-colors"
+                className="text-blue-500 hover:text-blue-600 transition-colors mt-2 sm:mt-0"
               >
                 View Form
               </Link>

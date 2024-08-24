@@ -18,7 +18,6 @@ function FormField({ attributes, fieldName, type, setField }) {
   const [optionsForm, setShowOptionForm] = useState(false);
 
   const addField = function (data) {
-    // update forms variables in store
     if (fieldName === "Select") {
       if (options.length !== 0) {
         data.options = options;
@@ -26,19 +25,16 @@ function FormField({ attributes, fieldName, type, setField }) {
         alert("Please add some options first!..");
       }
     }
-    console.log(data, form);
     data.element = type;
 
     const updateForms = [...form.fields, data];
-    console.log(updateForms);
-
     setField(false);
     dispatch(addFormField(updateForms));
   };
 
   const addOption = function (data) {
     setOptions((prev) => [...prev, data.option]);
-    resetOptionForm(); // Reset the option form
+    resetOptionForm();
     setShowOptionForm(false);
   };
 
@@ -47,10 +43,10 @@ function FormField({ attributes, fieldName, type, setField }) {
   }, [form]);
 
   return (
-    <div className="relative z-10">
+    <div className="relative z-10 p-4">
       <form
         onSubmit={handleSubmitMainForm(addField)}
-        className="bg-white p-6 rounded-md shadow-lg max-w-[300px] mx-auto"
+        className="bg-white p-6 rounded-md shadow-lg max-w-md mx-auto"
       >
         {attributes?.map((item, idx) => (
           <div
@@ -115,7 +111,7 @@ function FormField({ attributes, fieldName, type, setField }) {
           )
         )}
 
-        <div className="flex justify-between mt-6">
+        <div className="flex flex-col sm:flex-row justify-between mt-6">
           <button
             type="submit"
             className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none"
@@ -124,7 +120,7 @@ function FormField({ attributes, fieldName, type, setField }) {
           </button>
           <button
             type="button"
-            className="bg-gray-300 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-400 focus:outline-none"
+            className="bg-gray-300 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-400 focus:outline-none mt-2 sm:mt-0 sm:ml-2"
             onClick={() => setField(false)}
           >
             Cancel
@@ -134,7 +130,7 @@ function FormField({ attributes, fieldName, type, setField }) {
       {optionsForm && (
         <form
           onSubmit={handleSubmitOptionForm(addOption)}
-          className="absolute left-[100%] top-1/2 transform -translate-y-1/2 ml-4 flex items-center space-x-2"
+          className="absolute left-0 top-full mt-4 p-4 bg-white shadow-lg rounded-md w-full sm:w-auto sm:left-[100%] sm:top-1/2 sm:transform sm:-translate-y-1/2 sm:ml-4 flex flex-col sm:flex-row items-center space-y-2 sm:space-x-2 sm:space-y-0"
         >
           <input
             type="text"

@@ -5,7 +5,7 @@ import Header from "./components/Header";
 
 function App() {
   return (
-    <div className="h-screen bg-[aqua] w-screen overflow-hidden">
+    <div className="min-h-screen bg-[aqua] w-screen overflow-x-hidden ">
       <Header />
       <Outlet />
     </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import Field from "../components/Field";
 import FormField from "../components/FormField";
 import FormBox from "../components/FormBox";
@@ -32,11 +32,7 @@ function Create() {
           placeholder: "Enter placeholder of this field",
           required: true,
         },
-        {
-          name: "required",
-          type: "checkbox",
-          required: true,
-        },
+        { name: "required", type: "checkbox", required: true },
         {
           name: "Min",
           type: "number",
@@ -94,10 +90,7 @@ function Create() {
           placeholder: "Enter name of this field",
           required: true,
         },
-        {
-          name: "required",
-          type: "checkbox",
-        },
+        { name: "required", type: "checkbox" },
       ],
     },
     {
@@ -143,17 +136,16 @@ function Create() {
   const addFormName = (data) => {
     setFormName(data.formName);
     reset();
-    // console.log(data.formName);
   };
 
   return (
-    <div className="h-full w-full bg-[aqua] pt-4 flex flex-col items-start gap-4 pl-6 overflow-hidden">
-      <div className="flex items-start gap-8 pl-6 relative">
+    <div className="h-full w-full bg-aqua pt-4 flex flex-col items-center gap-4 px-6 overflow-hidden">
+      <div className="flex flex-wrap justify-center gap-8 relative w-full">
         {inputtypes?.map((item, idx) => (
-          <div key={idx} className="flex flex-col gap-4">
+          <div key={idx} className="flex flex-col gap-4 w-full sm:w-auto">
             <Field text={item.name} setField={setField} />
             {field === item.name && (
-              <div className="absolute top-16 z-10">
+              <div className="absolute top-16 z-10 w-full sm:w-auto">
                 <FormField
                   attributes={item.attributes}
                   fieldName={item.name}
@@ -167,25 +159,25 @@ function Create() {
       </div>
 
       <div
+        className="w-full flex flex-col items-center gap-12 mt-8 bg-aqua"
         style={{ height: "calc(100vh - 180px)" }}
-        className="w-full flex justify-center flex-col gap-12 items-center absolute top-32 left-1/2 transform -translate-x-1/2 bg-aqua"
       >
         <form
-          className="items-center flex gap-3 mb-4"
+          className="flex flex-col items-center gap-3 mb-4 w-full sm:w-auto"
           onSubmit={handleSubmit(addFormName)}
         >
           <label className="text-gray-700 font-semibold">Form Name</label>
           <input
             type="text"
             placeholder="Enter form name"
-            className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 w-full sm:w-auto"
             {...register("formName", {
               required: true,
             })}
           />
           <button
-            type="Submit"
-            className="hover:bg-transparent hover:border-2 hover:border-orange-500 hover:bg-white hover:text-orange-500 bg-orange-500 px-4 text-white font-semibold py-2 rounded-md"
+            type="submit"
+            className="mt-2 hover:bg-transparent hover:border-2 hover:border-orange-500 hover:bg-white hover:text-orange-500 bg-orange-500 px-4 text-white font-semibold py-2 rounded-md"
           >
             Submit
           </button>

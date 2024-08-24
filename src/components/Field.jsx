@@ -2,13 +2,13 @@ import React from "react";
 
 function Field({ text, className, setField }) {
   return (
-    <div className="">
+    <div className="w-full flex justify-center">
       <button
-        className="bg-white w-32 py-2 rounded-md text-center font-semibold"
+        className="bg-white w-full max-w-xs py-2 rounded-md text-center font-semibold flex items-center justify-center text-sm md:text-base lg:text-lg"
         onClick={() => setField(text)}
       >
-        {text}{" "}
-        <span className={`ml-2 font-extrabold text-lg ${className}`}>+</span>
+        {text}
+        <span className={`ml-2 font-extrabold ${className}`}>+</span>
       </button>
     </div>
   );
