@@ -2,6 +2,12 @@
 
 This project is a React application utilizing various modern technologies for development and styling. It uses Vite as the build tool, TailwindCSS for styling, and Redux for state management.
 
+Github Link:-. https://github.com/DivyDeshmukh/OnlineSales.AI.git
+
+Explanation_Video:- https://drive.google.com/file/d/1xp4yGmIbBseIG9cwXowDq1LM9g59nslb/view?usp=sharing
+
+Hosted_Link:-  https://divys-form-generator.netlify.app/
+
 ## Dependencies
 
 ### Core Dependencies
