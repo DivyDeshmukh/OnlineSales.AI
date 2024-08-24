@@ -1,37 +1,41 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App.jsx";
+import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Dashboard from "./pages/Dashboard.jsx";
 import Create from "./pages/Create.jsx";
-import Fill from "./pages/Fill.jsx";
+import { Provider } from "react-redux";
+import store from "./store/store.js";
+import SeeForm from "./pages/SeeForm.jsx";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <App />,
     children: [
       {
-        path: '/',
-        element: <Dashboard />
+        path: "/",
+        element: <Dashboard />,
       },
       {
-        path: '/create',
-        element: <Create />
+        path: "/create",
+        element: <Create />,
       },
       {
-        path: '/fill',
-        element: <Fill />
-      }
-    ]
-  }
+        path: "/form/:name",
+        element: <SeeForm />,
+      },
+    ],
+  },
 ]);
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router}>
-      <App />
-    </RouterProvider>
-  </StrictMode>,
+    <Provider store={store}>
+      <RouterProvider router={router}>
+        <App />
+      </RouterProvider>
+    </Provider>
+  </StrictMode>
 );
