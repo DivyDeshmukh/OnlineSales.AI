@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 
 function Create() {
   const [field, setField] = useState("");
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const [formName, setFormName] = useState("");
 
   const inputtypes = [
@@ -142,6 +142,7 @@ function Create() {
 
   const addFormName = (data) => {
     setFormName(data.formName);
+    reset();
     // console.log(data.formName);
   };
 

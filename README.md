@@ -1,8 +1,47 @@
-# React + Vite
+# Online Sales AI Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a React application utilizing various modern technologies for development and styling. It uses Vite as the build tool, TailwindCSS for styling, and Redux for state management.
 
-Currently, two official plugins are available:
+## Dependencies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Core Dependencies
+
+- **React**: A JavaScript library for building user interfaces.
+- **ReactDOM**: Provides DOM-specific methods that can be used at the top level of your application.
+- **React-Redux**: The official React bindings for Redux.
+- **React Router DOM**: Declarative routing for React.js applications.
+- **Redux Toolkit**: The official, opinionated, batteries-included toolset for efficient Redux development.
+
+### Development Dependencies
+
+- **ESLint**: A static code analysis tool for identifying problematic patterns in JavaScript code.
+- **ESLint Plugin React**: ESLint plugin for React specific linting rules.
+- **ESLint Plugin React Hooks**: ESLint plugin for React hooks linting rules.
+- **ESLint Plugin React Refresh**: ESLint plugin for React Refresh integration.
+- **PostCSS**: A tool for transforming CSS with JavaScript plugins.
+- **Autoprefixer**: A PostCSS plugin to parse CSS and add vendor prefixes.
+- **TailwindCSS**: A utility-first CSS framework for creating custom designs.
+- **Vite**: A fast build tool and development server.
+
+## Installation
+
+To get started with this project, you'll need to install the dependencies. Follow these steps:
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/yourusername/onlinesales-ai-assignment.git
+   cd onlinesales-ai-assignment
+   ```
+
+```bash
+    npm install
+```
+
+```bash
+    npm install --save-dev @eslint/js @types/react @types/react-dom @vitejs/plugin-react autoprefixer eslint eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-react-refresh globals postcss tailwindcss vite
+```
+
+```bash
+    npm install react-hook-form
+```
